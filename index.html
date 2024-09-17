@@ -12,72 +12,209 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         header {
             background: #6a1b9a; /* Roxo escuro */
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
             margin: 0;
+            font-size: 2.5rem;
         }
 
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 10px 0 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 10px;
+            margin: 0;
         }
 
         nav ul li a {
-            color: #fff;
+            color: #6a1b9a;
             text-decoration: none;
-            font-weight: bold;
+            padding: 15px 20px;
+            display: block;
+            transition: background 0.3s, color 0.3s;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
+            background: #6a1b9a;
+            color: #fff;
         }
 
         main {
             padding: 20px;
             text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         section {
+            margin: 40px 0;
+        }
+
+        h2 {
+            color: #6a1b9a;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #6a1b9a;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px 0;
+            list-style: none;
+            border-left: 2px solid #6a1b9a;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -7px;
+            width: 14px;
+            height: 14px;
+            background: #6a1b9a;
+            border-radius: 50%;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+            background: #6a1b9a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        audio {
+            width: 100%;
             margin: 20px 0;
+        }
+
+        .messages {
+            font-size: 1.2rem;
+            background: #eee;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .quotes {
+            font-size: 1.2rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .map {
+            height: 300px;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         footer {
             background: #4a0072; /* Roxo mais escuro */
             color: #fff;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 10px auto;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
-        h2 {
-            color: #6a1b9a; /* Roxo escuro */
+        .button {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
 
-        p {
-            color: #333;
+        .button:hover {
+            background-color: #4a0072;
         }
     </style>
 </head>
@@ -87,9 +224,13 @@
         <nav>
             <ul>
                 <li><a href="#home">Página Inicial</a></li>
-                <li><a href="#lyrics">Letra da Música</a></li>
+                <li><a href="#story">Nossa História</a></li>
+                <li><a href="#gallery">Momentos Especiais</a></li>
+                <li><a href="#countdown">Contador Regressivo</a></li>
+                <li><a href="#audio">Áudio Especial</a></li>
                 <li><a href="#messages">Mensagens Românticas</a></li>
-                <li><a href="#photos">Fotos e Memórias</a></li>
+                <li><a href="#quotes">Citações de Amor</a></li>
+                <li><a href="#map">Nosso Lugar Especial</a></li>
             </ul>
         </nav>
     </header>
@@ -98,76 +239,105 @@
         <!-- Seção da Página Inicial -->
         <section id="home">
             <h2>Para Você, Meu Amorzinho</h2>
-            <p>Este é um site especial dedicado a você, Maria Fernanda. Gabriel preparou isso com muito carinho. Clique nas opções acima para descobrir mais sobre nós.</p>
+            <p>Este site especial foi criado por Gabriel para celebrar o nosso amor. Explore as seções e descubra tudo que preparei para você!</p>
+            <a href="#story" class="button">Começar</a>
         </section>
 
-        <!-- Seção da Letra da Música -->
-        <section id="lyrics">
-            <h2>Letra da Música: I Wanna Be Yours</h2>
-            <p>I wanna be your vacuum cleaner<br>
-               Breathing in your dust<br>
-               I wanna be your Ford Cortina<br>
-               I will never rust<br>
-               If you like your coffee hot<br>
-               Let me be your coffee pot<br>
-               You call the shots, babe<br>
-               I just wanna be yours<br><br>
-               
-               Secrets I have held in my heart<br>
-               Are harder to hide than I thought<br>
-               Maybe I just wanna be yours<br>
-               I wanna be yours, I wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br><br>
-               
-               Let me be your leccy meter<br>
-               And I'll never run out<br>
-               Let me be the portable heater<br>
-               That you'll get cold without<br>
-               I wanna be your setting lotion (wanna be)<br>
-               Hold your hair in deep devotion (How deep?)<br>
-               At least as deep as the Pacific Ocean<br>
-               Now I wanna be yours<br><br>
-               
-               Secrets I have held in my heart<br>
-               Are harder to hide than I thought<br>
-               Maybe I just wanna be yours<br>
-               I wanna be yours, I wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               Wanna be yours<br>
-               (Wanna be yours)<br>
-               I wanna be your vacuum cleaner (wanna be yours)<br>
-               Breathing in your dust (wanna be yours)<br>
-               I wanna be your Ford Cortina (wanna be yours)<br>
-               I will never rust (wanna be yours)<br>
-               I just wanna be yours (wanna be yours)<br>
-               I just wanna be yours (wanna be yours)<br>
-               I just wanna be yours (wanna be yours)</p>
+        <!-- Seção da História -->
+        <section id="story">
+            <h2>Nossa História</h2>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <h3>Nos Conhecemos</h3>
+                    <p>Foi um encontro inesquecível no café onde começamos a nossa linda história.</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>Primeiro Aniversário Juntos</h3>
+                    <p>Celebramos nosso primeiro ano juntos com uma viagem inesquecível.</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>Nosso Pedido de Compromisso</h3>
+                    <p>O momento mágico em que prometemos estar juntos para sempre.</p>
+                </li>
+            </ul>
         </section>
 
-        <!-- Seção de Mensagens Românticas -->
+        <!-- Seção da Galeria -->
+        <section id="gallery">
+            <h2>Momentos Especiais</h2>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/200x150" alt="Momento 1">
+                <img src="https://via.placeholder.com/200x150" alt="Momento 2">
+                <img src="https://via.placeholder.com/200x150" alt="Momento 3">
+                <img src="https://via.placeholder.com/200x150" alt="Momento 4">
+            </div>
+        </section>
+
+        <!-- Seção do Contador Regressivo -->
+        <section id="countdown">
+            <h2>Contador Regressivo para o Próximo Encontro</h2>
+            <div id="countdown-timer" class="countdown"></div>
+            <script>
+                // Contador regressivo
+                function updateCountdown() {
+                    const eventDate = new Date("2024-12-25T00:00:00"); // Data do próximo encontro
+                    const now = new Date();
+                    const timeDiff = eventDate - now;
+
+                    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                    document.getElementById("countdown-timer").innerHTML = 
+                        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+
+                setInterval(updateCountdown, 1000);
+                updateCountdown(); // Atualizar imediatamente
+            </script>
+        </section>
+
+        <!-- Seção do Áudio Especial -->
+        <section id="audio">
+            <h2>Áudio Especial</h2>
+            <audio controls>
+                <source src="https://www.example.com/path-to-your-audio-file.mp3" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+        </section>
+
+        <!-- Seção das Mensagens Românticas -->
         <section id="messages">
-            <h2>Mensagens Românticas para Maria Fernanda</h2>
-            <p>Amorzinho, você é a razão do meu sorriso.<br>
-               Cada momento com você é um presente.<br>
-               Te amo mais do que palavras podem expressar.<br>
-               Cada dia ao seu lado é um sonho realizado.</p>
+            <h2>Mensagens Românticas</h2>
+            <div class="messages">
+                <p>Amorzinho, você ilumina minha vida de uma maneira que eu nunca imaginei ser possível.</p>
+                <p>Cada momento com você é precioso e único. Te amo mais a cada dia.</p>
+                <p>Você é minha fonte de felicidade e minha melhor amiga.</p>
+            </div>
         </section>
 
-        <!-- Seção de Fotos e Memórias -->
-        <section id="photos">
-            <h2>Fotos e Memórias</h2>
-            <p>Aqui estão algumas das nossas fotos favoritas:</p>
-            <img src="https://web.whatsapp.com/863bdc26-3c27-4c3e-ab2f-54b6fc2cae3c" alt="Foto 1">
-            <img src="https://web.whatsapp.com/6bfa1837-2cf8-434c-bd19-04e19878e735" alt="Foto 2">
-            <img src="https://web.whatsapp.com/141b1d61-ea5b-4daa-a561-e6b1ebeb5633" alt="Foto 3">
-            <img src="https://web.whatsapp.com/82abe506-36f3-4269-95dc-265d4825144f" alt="Foto 4">
+        <!-- Seção das Citações de Amor -->
+        <section id="quotes">
+            <h2>Citações de Amor</h2>
+            <div class="quotes">
+                <p>"O amor não consiste em olhar um para o outro, mas em olhar juntos na mesma direção." - Antoine de Saint-Exupéry</p>
+                <p>"Você é a minha definição de felicidade." - Anônimo</p>
+                <p>"O amor verdadeiro não tem final feliz, porque o amor verdadeiro nunca acaba." - Anônimo</p>
+            </div>
+        </section>
+
+        <!-- Seção do Mapa -->
+        <section id="map">
+            <h2>Nosso Lugar Especial</h2>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.694760651869!2d-46.65590398478653!3d-23.564229170184728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a10465a205b%3A0xd6c65b74301caaed!2sAv.%20Paulista%2C%201120%20-%20Consola%C3%A7%C3%A3o%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001301-100!5e0!3m2!1spt-BR!2sbr!4v1638451751895!5m2!1spt-BR!2sbr" 
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"></iframe>
+            </div>
         </section>
     </main>
 
